@@ -1,0 +1,23 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="frmAddGrade" ng-submit="createGrade(grade)" novalidate>
+    <h4>Create a new grade</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Grade Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="gradename" ng-model="grade.GradeName" ng-maxlength="32" required />
+            <span class="text-danger" ng-show="(frmAddGrade.gradename.$touched || frmAddGrade.gradename.$dirty) && frmAddGrade.gradename.$invalid">
+                <span ng-show="frmAddGrade.gradename.$error.required">Grade Name is required</span>
+                <span ng-show="frmAddGrade.gradename.$error.maxlength">Grade Name must be less than or equal to 10</span>
+            </span>
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="frmAddGrade.$invalid" />
+            <a href="/grades" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>

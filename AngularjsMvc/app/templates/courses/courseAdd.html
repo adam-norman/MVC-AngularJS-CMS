@@ -1,0 +1,23 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="frmAddCourse" ng-submit="createCourse(course)" novalidate>
+    <h4>Create a new course</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Course Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="name" ng-model="course.CourseName" ng-maxlength="80" required />
+            <span class="text-danger" ng-show="(frmAddCourse.name.$touched || frmAddCourse.name.$dirty) && frmAddCourse.name.$invalid">
+                <span ng-show="frmAddCourse.name.$error.required">Name is required</span>
+                <span ng-show="frmAddCourse.name.$error.maxlength">Name must be less than or equal to 80</span>
+            </span>
+        </div>
+    </div>
+     
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="frmAddCourse.$invalid" />
+            <a href="/courses" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>

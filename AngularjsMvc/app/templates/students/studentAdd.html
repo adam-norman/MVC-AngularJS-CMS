@@ -1,0 +1,31 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="frmAddStudent" ng-submit="createStudent(student)" novalidate>
+    <h4>Create a new student</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="name" ng-model="student.Name" ng-maxlength="32" required />
+            <span class="text-danger" ng-show="(frmAddStudent.name.$touched || frmAddStudent.name.$dirty) && frmAddStudent.name.$invalid">
+                <span ng-show="frmAddStudent.name.$error.required">Name is required</span>
+                <span ng-show="frmAddStudent.name.$error.maxlength">Name must be less than or equal to 50</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Birthday</label>
+        <div class="col-lg-10">
+            <input type="date" class="form-control" name="birthday" ng-model="student.Birthday" ng-maxlength="50" required />
+            <span class="text-danger" ng-show="(frmAddStudent.birthday.$touched || frmAddStudent.birthday.$dirty) && frmAddStudent.birthday.$invalid">
+                <span ng-show="frmAddStudent.birthday.$error.required">Birthday is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="frmAddStudent.$invalid" />
+            <a href="/students" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>

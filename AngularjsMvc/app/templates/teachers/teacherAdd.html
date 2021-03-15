@@ -1,0 +1,38 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="frmAddTeacher" ng-submit="createTeacher(teacher)" novalidate>
+    <h4>Create a new teacher</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="name" ng-model="teacher.Name" ng-maxlength="32" required />
+            <span class="text-danger" ng-show="(frmAddTeacher.name.$touched || frmAddTeacher.name.$dirty) && frmAddTeacher.name.$invalid">
+                <span ng-show="frmAddTeacher.name.$error.required">Name is required</span>
+                <span ng-show="frmAddTeacher.name.$error.maxlength">Name must be less than or equal to 50</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Birthday</label>
+        <div class="col-lg-10">
+            <input type="date" class="form-control" name="birthday" ng-model="teacher.Birthday" ng-maxlength="50" required />
+            <span class="text-danger" ng-show="(frmAddTeacher.birthday.$touched || frmAddTeacher.birthday.$dirty) && frmAddTeacher.birthday.$invalid">
+                <span ng-show="frmAddTeacher.birthday.$error.required">Birthday is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Salary</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="salary" ng-model="teacher.Salary" ng-maxlength="50" ng-minlength="2" />
+            <span ng-show="frmAddTeacher.salary.$error.required">Salary is required</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="frmAddTeacher.$invalid" />
+            <a href="/teachers" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>
